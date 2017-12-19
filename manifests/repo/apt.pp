@@ -25,4 +25,6 @@ class influxdb::repo::apt(
     include  => $include,
   }
 
+  Apt::Source['repos.influxdata.com'] ~> Class[Apt::Update] -> Package['influxdb']
+
 }
